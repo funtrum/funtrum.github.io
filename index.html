@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style type="text/css">
+        @media only screen 
+        and (min-width : 321px) 
+        and (max-width : 767px) {
+            .arrow {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                margin-left:-12.5px;
+                width: 25px;
+                height: 25px;
+                background-image: url(arrow-down.svg);
+                background-size: contain;
+                -webkit-animation:bounce 1s infinite;
+                z-index: 9999;
+            }
+
+            @-webkit-keyframes bounce {
+                0%       { 
+                    -webkit-transform: translateY(-5px);
+                }
+                25%, 75% { 
+                    -webkit-transform: translateY(-15px);
+                }
+                50%      { 
+                    -webkit-transform: translateY(-20px);
+                }
+                100%     { 
+                    -webkit-transform: translateY(0px);
+                }
+            }
+
+            .header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff url(header_bg.png) no-repeat;
+                background-size: cover;
+                transition: all 2s;
+                -webkit-transform: translateY(0%);
+                z-index: 84;
+            }
+            .nav {
+                width: 250px;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            #logo {
+                width: 250px;
+                margin: 0 auto;
+            }
+
+            .item {
+                display: block;
+                float: right;
+                font-size: 12pt;
+                line-height: 25pt;
+                font-family: 'Helvetica Neue';
+                text-decoration: none;
+                font-weight: 300;
+                color: #fff;
+                margin-right: 50px;
+                cursor: pointer;
+            }
+            .c-logo {
+                display: block;
+                height: 45%;
+                margin: auto;
+                margin-top: 5%;
+            }
+
+            .c-subscription {
+                padding-top: 2%;
+                height: 10%;
+                font-size: 12pt;
+                color: #fff;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                text-align: center;
+                margin: 0;
+                display: none;
+            }
+            .order-btn {
+                color: #fff;
+                width: 210px;
+                height: 46px;
+                margin: 0 auto;
+                margin-top: 5%;
+                text-align: center;
+                font-size: 14pt;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                line-height: 46px;
+                background: #3498db;
+                cursor: pointer;
+            }
+        }
+
+        @media only screen 
+        and (max-width : 320px) {
+            .arrow {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                margin-left:-12.5px;
+                width: 25px;
+                height: 25px;
+                background-image: url(arrow-down.svg);
+                background-size: contain;
+                -webkit-animation:bounce 1s infinite;
+                z-index: 9999;
+            }
+
+            @-webkit-keyframes bounce {
+                0%       { 
+                    -webkit-transform: translateY(-5px);
+                }
+                25%, 75% { 
+                    -webkit-transform: translateY(-15px);
+                }
+                50%      { 
+                    -webkit-transform: translateY(-20px);
+                }
+                100%     { 
+                    -webkit-transform: translateY(0px);
+                }
+            }
+
+            .header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff url(header_bg.png) no-repeat;
+                background-size: cover;
+                transition: all 2s;
+                -webkit-transform: translateY(0%);
+                z-index: 84;
+            }
+            .nav {
+                width: 250px;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            #logo {
+                width: 250px;
+                margin: 0 auto;
+            }
+
+            .item {
+                display: block;
+                float: right;
+                font-size: 12pt;
+                line-height: 25pt;
+                font-family: 'Helvetica Neue';
+                text-decoration: none;
+                font-weight: 300;
+                color: #fff;
+                margin-right: 50px;
+                cursor: pointer;
+            }
+            .c-logo {
+                display: block;
+                height: 60%;
+                margin: auto;
+                margin-top: 10%;
+            }
+
+            .c-subscription {
+                padding-top: 2%;
+                height: 10%;
+                font-size: 12pt;
+                color: #fff;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                text-align: center;
+                margin: 0;
+                display: none;
+            }
+            .order-btn {
+                color: #fff;
+                width: 210px;
+                height: 46px;
+                margin: 0 auto;
+                margin-top: 24%;
+                text-align: center;
+                font-size: 14pt;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                line-height: 46px;
+                background: #3498db;
+                cursor: pointer;
+            }
+        }
+        @media only screen 
+        and (min-device-width : 768px) 
+        and (max-device-width : 1024px) 
+        and (orientation : portrait) {
+            .arrow {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                margin-left:-20px;
+                width: 40px;
+                height: 40px;
+                background-image: url(arrow-down.svg);
+                background-size: contain;
+                -webkit-animation:bounce 1s infinite;
+                z-index: 9999;
+            }
+
+            @-webkit-keyframes bounce {
+                0%       { 
+                    -webkit-transform: translateY(-5px);
+                }
+                25%, 75% { 
+                    -webkit-transform: translateY(-15px);
+                }
+                50%      { 
+                    -webkit-transform: translateY(-20px);
+                }
+                100%     { 
+                    -webkit-transform: translateY(0px);
+                }
+            }
+
+            .header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff url(header_bg.png) no-repeat;
+                background-size: cover;
+                transition: all 2s;
+                -webkit-transform: translateY(0%);
+                z-index: 84;
+            }
+            .nav {
+                width: 100%;
+                height: 50px;
+                margin-top: 20px;
+                margin-left: 20px;
+                float: left;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            #logo {
+                height: 46px;
+                float: left;
+            }
+
+            .item {
+                display: block;
+                float: right;
+                font-size: 12pt;
+                line-height: 25pt;
+                font-family: 'Helvetica Neue';
+                text-decoration: none;
+                font-weight: 300;
+                color: #fff;
+                margin-right: 50px;
+                cursor: pointer;
+            }
+            .c-logo {
+                display: block;
+                height: 60%;
+                margin: auto;
+            }
+
+            .c-subscription {
+                padding-top: 2%;
+                height: 10%;
+                font-size: 18pt;
+                color: #fff;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                text-align: center;
+                margin: 0;
+            }
+            .order-btn {
+                color: #fff;
+                width: 210px;
+                height: 46px;
+                margin: 0 auto;
+                margin-top: 4%;
+                text-align: center;
+                font-size: 14pt;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                line-height: 32pt;
+                background: #3498db;
+                cursor: pointer;
+            }
+        }
+        @media only screen 
+        and (min-device-width : 768px) 
+        and (max-device-width : 1024px) 
+        and (orientation : landscape) {
+            .arrow {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                margin-left:-20px;
+                width: 40px;
+                height: 40px;
+                background-image: url(arrow-down.svg);
+                background-size: contain;
+                -webkit-animation:bounce 1s infinite;
+                z-index: 9999;
+            }
+
+            @-webkit-keyframes bounce {
+                0%       { 
+                    -webkit-transform: translateY(-5px);
+                }
+                25%, 75% { 
+                    -webkit-transform: translateY(-15px);
+                }
+                50%      { 
+                    -webkit-transform: translateY(-20px);
+                }
+                100%     { 
+                    -webkit-transform: translateY(0px);
+                }
+            }
+
+            .header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff url(header_bg.png) no-repeat;
+                background-size: cover;
+                transition: all 2s;
+                -webkit-transform: translateY(0%);
+                z-index: 84;
+            }
+            .nav {
+                width: 100%;
+                height: 50px;
+                margin-top: 20px;
+                margin-left: 20px;
+                float: left;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            #logo {
+                height: 46px;
+                float: left;
+            }
+
+            .item {
+                display: block;
+                float: right;
+                font-size: 12pt;
+                line-height: 25pt;
+                font-family: 'Helvetica Neue';
+                text-decoration: none;
+                font-weight: 300;
+                color: #fff;
+                margin-right: 50px;
+                cursor: pointer;
+            }
+            .c-logo {
+                display: block;
+                height: 60%;
+                margin: auto;
+            }
+
+            .c-subscription {
+                padding-top: 2%;
+                height: 10%;
+                font-size: 18pt;
+                color: #fff;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                text-align: center;
+                margin: 0;
+            }
+            .order-btn {
+                color: #fff;
+                width: 210px;
+                height: 46px;
+                margin: 0 auto;
+                margin-top: 4%;
+                text-align: center;
+                font-size: 14pt;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                line-height: 32pt;
+                background: #3498db;
+                cursor: pointer;
+            }
+        }
+
+        @media only screen 
+        and (min-width : 1224px) {
+            .arrow {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                margin-left:-20px;
+                width: 40px;
+                height: 40px;
+                background-image: url(arrow-down.svg);
+                background-size: contain;
+                -webkit-animation:bounce 1s infinite;
+                z-index: 9999;
+            }
+
+            @-webkit-keyframes bounce {
+                0%       { 
+                    -webkit-transform: translateY(-5px);
+                }
+                25%, 75% { 
+                    -webkit-transform: translateY(-15px);
+                }
+                50%      { 
+                    -webkit-transform: translateY(-20px);
+                }
+                100%     { 
+                    -webkit-transform: translateY(0px);
+                }
+            }
+
+            .header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff url(header_bg.png) no-repeat;
+                background-size: cover;
+                transition: all 2s;
+                -webkit-transform: translateY(0%);
+                z-index: 84;
+            }
+            .nav {
+                width: 100%;
+                height: 50px;
+                margin-top: 20px;
+                margin-left: 20px;
+                float: left;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            #logo {
+                height: 46px;
+                float: left;
+            }
+
+            .item {
+                display: block;
+                float: right;
+                font-size: 12pt;
+                line-height: 25pt;
+                font-family: 'Helvetica Neue';
+                text-decoration: none;
+                font-weight: 300;
+                color: #fff;
+                margin-right: 50px;
+                cursor: pointer;
+            }
+            .c-logo {
+                display: block;
+                height: 60%;
+                margin: auto;
+            }
+
+            .c-subscription {
+                padding-top: 2%;
+                height: 10%;
+                font-size: 18pt;
+                color: #fff;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                text-align: center;
+                margin: 0;
+            }
+            .order-btn {
+                color: #fff;
+                width: 210px;
+                height: 46px;
+                margin: 0 auto;
+                margin-top: 4%;
+                text-align: center;
+                font-size: 14pt;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                line-height: 32pt;
+                background: #3498db;
+                cursor: pointer;
+            }
+        }
+
+        @media only screen 
+        and (min-width : 1824px) {
+            .arrow {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                margin-left:-20px;
+                width: 40px;
+                height: 40px;
+                background-image: url(arrow-down.svg);
+                background-size: contain;
+                -webkit-animation:bounce 1s infinite;
+                z-index: 9999;
+            }
+
+            @-webkit-keyframes bounce {
+                0%       { 
+                    -webkit-transform: translateY(-5px);
+                }
+                25%, 75% { 
+                    -webkit-transform: translateY(-15px);
+                }
+                50%      { 
+                    -webkit-transform: translateY(-20px);
+                }
+                100%     { 
+                    -webkit-transform: translateY(0px);
+                }
+            }
+
+            .header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff url(header_bg.png) no-repeat;
+                background-size: cover;
+                transition: all 2s;
+                -webkit-transform: translateY(0%);
+                z-index: 84;
+            }
+            .nav {
+                width: 100%;
+                height: 50px;
+                margin-top: 20px;
+                margin-left: 20px;
+                float: left;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            #logo {
+                height: 46px;
+                float: left;
+            }
+
+            .item {
+                display: block;
+                float: right;
+                font-size: 12pt;
+                line-height: 25pt;
+                font-family: 'Helvetica Neue';
+                text-decoration: none;
+                font-weight: 300;
+                color: #fff;
+                margin-right: 50px;
+                cursor: pointer;
+            }
+            .c-logo {
+                display: block;
+                height: 60%;
+                margin: auto;
+            }
+
+            .c-subscription {
+                padding-top: 2%;
+                height: 10%;
+                font-size: 18pt;
+                color: #fff;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                text-align: center;
+                margin: 0;
+            }
+            .order-btn {
+                color: #fff;
+                width: 210px;
+                height: 46px;
+                margin: 0 auto;
+                margin-top: 4%;
+                text-align: center;
+                font-size: 14pt;
+                font-family: 'Helvetica Neue';
+                font-weight: 100;
+                line-height: 32pt;
+                background: #3498db;
+                cursor: pointer;
+            }
+        }
+    </style>
+    <title>Funtrum</title>
+</head>
+<body ontouchmove="blockMove();">
+    <div class="header" id="header">
+        <div class="nav">
+            <img src="funtrum_logo_2.png" alt="" id="logo">
+            <a href="#" class="item">English Version</a>
+        </div>
+        
+        <div class="h-content">
+            <img src="logo_test.svg" alt="" class="c-logo">
+            <p class="c-subscription">Разработка Сайтов и Приложений</p>
+            <div class="order-btn">Заказать</div>
+        </div>
+        <div class="arrow-container"><div class="arrow"></div></div>
+    </div>
+    <div class="whoweare" id="whoweare">
+       <div class="wwa-up-arrow-container"><div class="wwa-up-arrow"></div></div>
+       <div class="wwa-down-arrow-container"><div class="wwa-down-arrow"></div></div>
+        <div class="wwa-h">Кто же мы?</div>
+        <div class="wwa-container">
+            <div class="wwa-text">Мы - это группа свободных разработчкиов, ориентированных на российский рынок. Проверенная временем команда дает стопроцентную гарантию качества работы во многих областях программирования и веб-разработки.</div>
+        </div>
+    </div>
+    <div class="wwa-to-spec" id="wwa-to-spec"></div>
+    <div class="specialization" id="specialization">
+       <div class="spec-up-arrow-container"><div class="spec-up-arrow"></div></div>
+       <div class="spec-down-arrow-container"><div class="spec-down-arrow"></div></div>
+        <div class="spec-h">Чем занимаемся?</div>
+        <div class="spec-web">
+            <img src="web-icon.svg" class="spec-icon">
+            <div class="spec-text">Разработка сайтов разной степени сложности</div>
+        </div>
+        <br>
+        <div class="spec-apple">
+            <img src="apple-icon.svg" class="spec-icon">
+            <div class="spec-text">Разработка приложений под платформы Apple</div>
+        </div>
+        <br>
+        <div class="spec-windows">
+            <img src="windows-icon.svg" class="spec-icon">
+            <div class="spec-text">Разработка приложений для OS Windows</div>
+        </div>
+        <br>
+        <div class="spec-android">
+            <img src="android-icon.svg" class="spec-icon">
+            <div class="spec-text">Разработка приложений для Android</div>
+        </div>
+    </div>
+    <div class="portfolio" id="portfolio">
+      <div class="portfolio-h">Портфолио</div>
+       <div class="portfolio-up-arrow-container"><div class="portfolio-up-arrow"></div></div>
+       <div class="portfolio-down-arrow-container"><div class="portfolio-down-arrow"></div></div>
+       <div class="portfolio-left-arrow-container"><div class="portfolio-left-arrow" id="portfolio-left-arrow"></div></div>
+       <div class="portfolio-right-arrow-container"><div class="portfolio-right-arrow" id="portfolio-right-arrow"></div></div>
+         <div id="portfolio-outer"> 
+            <div id="portfolio-inner">
+                <div class="portfolio-preview-container">
+                   <img src="prev_adventum.png" alt="" class="portfolio-preview">
+                   <div class="portfolio-text">Adventum Website Redesign 2014</div>
+                </div>
+                <div class="portfolio-preview-container">
+                   <img src="prev_adventum.png" alt="" class="portfolio-preview">
+                   <div class="portfolio-text">Second Portfolio Item</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reviews" id="reviews">
+        <div class="reviews-up-arrow-container"><div class="reviews-up-arrow"></div></div>
+        <div class="reviews-down-arrow-container"><div class="reviews-down-arrow"></div></div>
+        <div class="reviews-left-arrow-container"><div class="reviews-left-arrow" id="reviews-left-arrow"></div></div>
+        <div class="reviews-right-arrow-container"><div class="reviews-right-arrow" id="reviews-right-arrow"></div></div>
+        <div class="reviews-h">Отзывы</div>
+        <div id="reviews-outer">
+            <div id="reviews-inner">
+                <div class="reviews-container">
+                    <div class="reviews-photo-container"><img src="AllaDrozdova.jpg" alt="" class="reviews-photo"></div>
+                    <div class="reviews-person">Алла Дроздова<br>Adventum Senior HR</div>
+                    <div class="reviews-text">Суперский отзыв о нас, какие мы крутые и классные!</div>
+                </div>
+                <div class="reviews-container">
+                    <div class="reviews-photo-container"><img src="Vovan.jpg" alt="" class="reviews-photo"></div>
+                    <div class="reviews-person">Вован<br>Великий оратор всея мира</div>
+                    <div class="reviews-text">Прекраснейшая студия!</div>
+                </div>
+             </div>
+         </div>
+    </div>
+    <div class="footer" id="footer">
+        <div class="footer-up-arrow-container"><div class="footer-up-arrow"></div></div>
+        <div class="footer-fullup-arrow-container"><div class="footer-fullup-arrow"></div></div>
+        <div class="footer-team">
+            <div class="footer-team-h">Команда</div>
+            <div id="team-outer">
+                <div id="team-inner">
+                    <div class="team-container">
+                        <img src="" alt="" class="footer-team-photo">
+                        <div class="footer-team-name">Никита</div>
+                        <div class="footer-team-rank">Веб-Программист</div>
+                    </div>
+                    <div class="team-container">
+                        <img src="" alt="" class="footer-team-photo">
+                        <div class="footer-team-name">Вован</div>
+                        <div class="footer-team-rank">PR-Агент</div>
+                    </div>
+                    <div class="team-container">
+                        <img src="" alt="" class="footer-team-photo">
+                        <div class="footer-team-name">Лаврентий</div>
+                        <div class="footer-team-rank">Прост)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-order">
+            <div class="footer-order-h">Скидка 30% только сейчас!</div>
+            <br>
+            <script type="text/javascript">var submitted=false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='http://%MY_PAGE%';}"></iframe>
+            <form action="https://docs.google.com/forms/d/1P9GFImNYmIODwKScdUOTKbTujlWDI93heCyB3JtoE1w/formResponse" method="POST" id="ss-form" target="_self" target="hidden_iframe" onsubmit="submitted=true;" class="footer-order-form">
+                <div class="footer-order-first">
+                    <input type="text" name="entry.1463753748" value="" class="footer-order-name" placeholder="Имя">
+                    <input type="email" name="entry.1178413080" value="" class="footer-order-email" placeholder="E-Mail">
+                </div>
+                <div class="footer-order-third">
+                    <div class="footer-order-second">
+                        <div class="footer-order-type">
+                            <input type="checkbox" name="entry.814430390" value="Web" id="1" /><label for="1"><span class="ui"></span>Веб-Сайт</label>
+                        </div>
+                        <div class="footer-order-type">
+                            <input type="checkbox" name="entry.814430390" value="Apple" id="2" /><label for="2"><span class="ui"></span>Mac OS / iOS</label>
+                        </div>
+                        <div class="footer-order-type">
+                            <input type="checkbox" name="entry.814430390" value="Windows" id="3" /><label for="3"><span class="ui"></span>OS Windows</label>
+                        </div>
+                        <div class="footer-order-type">
+                            <input type="checkbox" name="entry.814430390" value="Android" id="4" /><label for="4"><span class="ui"></span>Android OS</label>
+                        </div>
+                    </div>
+                    <div class="footer-order-fourth">
+                        <textarea name="entry.1450567570" class="footer-order-text" placeholder="Текстовое задание"></textarea>
+                        <div onclick="javascript:document.forms[0].submit()" class="footer-order-btn">Заказать Немедленно</div>
+                     </div>
+                 </div>
+            </form>
+        </div>
+        <!--img src="logo_test.svg" alt="" class="footer-logo"-->
+        <div class="footer-logo-text">Funtrum</div>
+        <div class="footer-year">2015</div>
+    </div>
+</body>
+<link rel="stylesheet" href="main.min.css">
+<script src="jquery-1.11.2.min.js"></script>
+<script src="main.min.js"></script>
+</html>
