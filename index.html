@@ -1,801 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <style type="text/css">
-        @media only screen 
-        and (min-width : 321px) 
-        and (max-width : 767px) {
-            .arrow {
-                position: fixed;
-                bottom: 0;
-                left: 50%;
-                margin-left:-12.5px;
-                width: 25px;
-                height: 25px;
-                background-image: url(arrow-down.svg);
-                background-size: contain;
-                -webkit-animation:bounce 1s infinite;
-                z-index: 9999;
-            }
-
-            @-webkit-keyframes bounce {
-                0%       { 
-                    -webkit-transform: translateY(-5px);
-                }
-                25%, 75% { 
-                    -webkit-transform: translateY(-15px);
-                }
-                50%      { 
-                    -webkit-transform: translateY(-20px);
-                }
-                100%     { 
-                    -webkit-transform: translateY(0px);
-                }
-            }
-
-            .header {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff url(header_bg.png) no-repeat;
-                background-size: cover;
-                transition: all 2s;
-                -webkit-transform: translateY(0%);
-                z-index: 84;
-            }
-            .nav {
-                width: 250px;
-                margin: 0 auto;
-                margin-top: 20px;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-
-            #logo {
-                width: 250px;
-                margin: 0 auto;
-            }
-
-            .item {
-                display: block;
-                float: right;
-                font-size: 12pt;
-                line-height: 25pt;
-                font-family: 'Helvetica Neue';
-                text-decoration: none;
-                font-weight: 300;
-                color: #fff;
-                margin-right: 50px;
-                cursor: pointer;
-            }
-            .c-logo {
-                display: block;
-                height: 45%;
-                margin: auto;
-                margin-top: 5%;
-            }
-
-            .c-subscription {
-                padding-top: 2%;
-                height: 10%;
-                font-size: 12pt;
-                color: #fff;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                text-align: center;
-                margin: 0;
-                display: none;
-            }
-            .order-btn {
-                color: #fff;
-                width: 210px;
-                height: 46px;
-                margin: 0 auto;
-                margin-top: 5%;
-                text-align: center;
-                font-size: 14pt;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                line-height: 46px;
-                background: #3498db;
-                cursor: pointer;
-            }
-        }
-
-        @media only screen 
-        and (max-width : 320px) {
-            .arrow {
-                position: fixed;
-                bottom: 0;
-                left: 50%;
-                margin-left:-12.5px;
-                width: 25px;
-                height: 25px;
-                background-image: url(arrow-down.svg);
-                background-size: contain;
-                -webkit-animation:bounce 1s infinite;
-                z-index: 9999;
-            }
-
-            @-webkit-keyframes bounce {
-                0%       { 
-                    -webkit-transform: translateY(-5px);
-                }
-                25%, 75% { 
-                    -webkit-transform: translateY(-15px);
-                }
-                50%      { 
-                    -webkit-transform: translateY(-20px);
-                }
-                100%     { 
-                    -webkit-transform: translateY(0px);
-                }
-            }
-
-            .header {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff url(header_bg.png) no-repeat;
-                background-size: cover;
-                transition: all 2s;
-                -webkit-transform: translateY(0%);
-                z-index: 84;
-            }
-            .nav {
-                width: 250px;
-                margin: 0 auto;
-                margin-top: 20px;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-
-            #logo {
-                width: 250px;
-                margin: 0 auto;
-            }
-
-            .item {
-                display: block;
-                float: right;
-                font-size: 12pt;
-                line-height: 25pt;
-                font-family: 'Helvetica Neue';
-                text-decoration: none;
-                font-weight: 300;
-                color: #fff;
-                margin-right: 50px;
-                cursor: pointer;
-            }
-            .c-logo {
-                display: block;
-                height: 60%;
-                margin: auto;
-                margin-top: 10%;
-            }
-
-            .c-subscription {
-                padding-top: 2%;
-                height: 10%;
-                font-size: 12pt;
-                color: #fff;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                text-align: center;
-                margin: 0;
-                display: none;
-            }
-            .order-btn {
-                color: #fff;
-                width: 210px;
-                height: 46px;
-                margin: 0 auto;
-                margin-top: 24%;
-                text-align: center;
-                font-size: 14pt;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                line-height: 46px;
-                background: #3498db;
-                cursor: pointer;
-            }
-        }
-        @media only screen 
-        and ((min-device-width : 768px) 
-        and (max-device-width : 1024px) 
-        and (orientation : portrait)) or (min-width: 768px) {
-            .arrow {
-                position: fixed;
-                bottom: 0;
-                left: 50%;
-                margin-left:-20px;
-                width: 40px;
-                height: 40px;
-                background-image: url(arrow-down.svg);
-                background-size: contain;
-                -webkit-animation:bounce 1s infinite;
-                z-index: 9999;
-            }
-
-            @-webkit-keyframes bounce {
-                0%       { 
-                    -webkit-transform: translateY(-5px);
-                }
-                25%, 75% { 
-                    -webkit-transform: translateY(-15px);
-                }
-                50%      { 
-                    -webkit-transform: translateY(-20px);
-                }
-                100%     { 
-                    -webkit-transform: translateY(0px);
-                }
-            }
-
-            .header {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff url(header_bg.png) no-repeat;
-                background-size: cover;
-                transition: all 2s;
-                -webkit-transform: translateY(0%);
-                z-index: 84;
-            }
-            .nav {
-                width: 100%;
-                height: 50px;
-                margin-top: 20px;
-                margin-left: 20px;
-                float: left;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-
-            #logo {
-                height: 46px;
-                float: left;
-            }
-
-            .item {
-                display: block;
-                float: right;
-                font-size: 12pt;
-                line-height: 25pt;
-                font-family: 'Helvetica Neue';
-                text-decoration: none;
-                font-weight: 300;
-                color: #fff;
-                margin-right: 50px;
-                cursor: pointer;
-            }
-            .c-logo {
-                display: block;
-                height: 60%;
-                margin: auto;
-            }
-
-            .c-subscription {
-                padding-top: 2%;
-                height: 10%;
-                font-size: 18pt;
-                color: #fff;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                text-align: center;
-                margin: 0;
-            }
-            .order-btn {
-                color: #fff;
-                width: 210px;
-                height: 46px;
-                margin: 0 auto;
-                margin-top: 4%;
-                text-align: center;
-                font-size: 14pt;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                line-height: 32pt;
-                background: #3498db;
-                cursor: pointer;
-            }
-        }
-        @media only screen 
-        and ((min-device-width : 768px) 
-        and (max-device-width : 1024px) 
-        and (orientation : landscape)) or (min-width: 1024px) {
-            .arrow {
-                position: fixed;
-                bottom: 0;
-                left: 50%;
-                margin-left:-20px;
-                width: 40px;
-                height: 40px;
-                background-image: url(arrow-down.svg);
-                background-size: contain;
-                -webkit-animation:bounce 1s infinite;
-                z-index: 9999;
-            }
-
-            @-webkit-keyframes bounce {
-                0%       { 
-                    -webkit-transform: translateY(-5px);
-                }
-                25%, 75% { 
-                    -webkit-transform: translateY(-15px);
-                }
-                50%      { 
-                    -webkit-transform: translateY(-20px);
-                }
-                100%     { 
-                    -webkit-transform: translateY(0px);
-                }
-            }
-
-            .header {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff url(header_bg.png) no-repeat;
-                background-size: cover;
-                transition: all 2s;
-                -webkit-transform: translateY(0%);
-                z-index: 84;
-            }
-            .nav {
-                width: 100%;
-                height: 50px;
-                margin-top: 20px;
-                margin-left: 20px;
-                float: left;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-
-            #logo {
-                height: 46px;
-                float: left;
-            }
-
-            .item {
-                display: block;
-                float: right;
-                font-size: 12pt;
-                line-height: 25pt;
-                font-family: 'Helvetica Neue';
-                text-decoration: none;
-                font-weight: 300;
-                color: #fff;
-                margin-right: 50px;
-                cursor: pointer;
-            }
-            .c-logo {
-                display: block;
-                height: 60%;
-                margin: auto;
-            }
-
-            .c-subscription {
-                padding-top: 2%;
-                height: 10%;
-                font-size: 18pt;
-                color: #fff;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                text-align: center;
-                margin: 0;
-            }
-            .order-btn {
-                color: #fff;
-                width: 210px;
-                height: 46px;
-                margin: 0 auto;
-                margin-top: 4%;
-                text-align: center;
-                font-size: 14pt;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                line-height: 32pt;
-                background: #3498db;
-                cursor: pointer;
-            }
-        }
-
-        @media only screen 
-        and (min-width : 1224px) {
-            .arrow {
-                position: fixed;
-                bottom: 0;
-                left: 50%;
-                margin-left:-20px;
-                width: 40px;
-                height: 40px;
-                background-image: url(arrow-down.svg);
-                background-size: contain;
-                -webkit-animation:bounce 1s infinite;
-                z-index: 9999;
-            }
-
-            @-webkit-keyframes bounce {
-                0%       { 
-                    -webkit-transform: translateY(-5px);
-                }
-                25%, 75% { 
-                    -webkit-transform: translateY(-15px);
-                }
-                50%      { 
-                    -webkit-transform: translateY(-20px);
-                }
-                100%     { 
-                    -webkit-transform: translateY(0px);
-                }
-            }
-
-            .header {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff url(header_bg.png) no-repeat;
-                background-size: cover;
-                transition: all 2s;
-                -webkit-transform: translateY(0%);
-                z-index: 84;
-            }
-            .nav {
-                width: 100%;
-                height: 50px;
-                margin-top: 20px;
-                margin-left: 20px;
-                float: left;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-
-            #logo {
-                height: 46px;
-                float: left;
-            }
-
-            .item {
-                display: block;
-                float: right;
-                font-size: 12pt;
-                line-height: 25pt;
-                font-family: 'Helvetica Neue';
-                text-decoration: none;
-                font-weight: 300;
-                color: #fff;
-                margin-right: 50px;
-                cursor: pointer;
-            }
-            .c-logo {
-                display: block;
-                height: 60%;
-                margin: auto;
-            }
-
-            .c-subscription {
-                padding-top: 2%;
-                height: 10%;
-                font-size: 18pt;
-                color: #fff;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                text-align: center;
-                margin: 0;
-            }
-            .order-btn {
-                color: #fff;
-                width: 210px;
-                height: 46px;
-                margin: 0 auto;
-                margin-top: 4%;
-                text-align: center;
-                font-size: 14pt;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                line-height: 32pt;
-                background: #3498db;
-                cursor: pointer;
-            }
-        }
-
-        @media only screen 
-        and (min-width : 1824px) {
-            .arrow {
-                position: fixed;
-                bottom: 0;
-                left: 50%;
-                margin-left:-20px;
-                width: 40px;
-                height: 40px;
-                background-image: url(arrow-down.svg);
-                background-size: contain;
-                -webkit-animation:bounce 1s infinite;
-                z-index: 9999;
-            }
-
-            @-webkit-keyframes bounce {
-                0%       { 
-                    -webkit-transform: translateY(-5px);
-                }
-                25%, 75% { 
-                    -webkit-transform: translateY(-15px);
-                }
-                50%      { 
-                    -webkit-transform: translateY(-20px);
-                }
-                100%     { 
-                    -webkit-transform: translateY(0px);
-                }
-            }
-
-            .header {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff url(header_bg.png) no-repeat;
-                background-size: cover;
-                transition: all 2s;
-                -webkit-transform: translateY(0%);
-                z-index: 84;
-            }
-            .nav {
-                width: 100%;
-                height: 50px;
-                margin-top: 20px;
-                margin-left: 20px;
-                float: left;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-
-            #logo {
-                height: 46px;
-                float: left;
-            }
-
-            .item {
-                display: block;
-                float: right;
-                font-size: 12pt;
-                line-height: 25pt;
-                font-family: 'Helvetica Neue';
-                text-decoration: none;
-                font-weight: 300;
-                color: #fff;
-                margin-right: 50px;
-                cursor: pointer;
-            }
-            .c-logo {
-                display: block;
-                height: 60%;
-                margin: auto;
-            }
-
-            .c-subscription {
-                padding-top: 2%;
-                height: 10%;
-                font-size: 18pt;
-                color: #fff;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                text-align: center;
-                margin: 0;
-            }
-            .order-btn {
-                color: #fff;
-                width: 210px;
-                height: 46px;
-                margin: 0 auto;
-                margin-top: 4%;
-                text-align: center;
-                font-size: 14pt;
-                font-family: 'Helvetica Neue';
-                font-weight: 100;
-                line-height: 32pt;
-                background: #3498db;
-                cursor: pointer;
-            }
-        }
-    </style>
-    <title>Funtrum</title>
-</head>
-<body ontouchmove="blockMove();">
-    <div class="header" id="header">
-        <div class="nav">
-            <img src="funtrum_logo_2.png" alt="" id="logo">
-            <a href="#" class="item">English Version</a>
-        </div>
-        
-        <div class="h-content">
-            <img src="logo_test.svg" alt="" class="c-logo">
-            <p class="c-subscription">Разработка Сайтов и Приложений</p>
-            <div class="order-btn">Заказать</div>
-        </div>
-        <div class="arrow-container"><div class="arrow"></div></div>
-    </div>
-    <div class="whoweare" id="whoweare">
-       <div class="wwa-up-arrow-container"><div class="wwa-up-arrow"></div></div>
-       <div class="wwa-down-arrow-container"><div class="wwa-down-arrow"></div></div>
-        <div class="wwa-h">Кто же мы?</div>
-        <div class="wwa-container">
-            <div class="wwa-text">Мы - это группа свободных разработчкиов, ориентированных на российский рынок. Проверенная временем команда дает стопроцентную гарантию качества работы во многих областях программирования и веб-разработки.</div>
-        </div>
-    </div>
-    <div class="wwa-to-spec" id="wwa-to-spec"></div>
-    <div class="specialization" id="specialization">
-       <div class="spec-up-arrow-container"><div class="spec-up-arrow"></div></div>
-       <div class="spec-down-arrow-container"><div class="spec-down-arrow"></div></div>
-        <div class="spec-h">Чем занимаемся?</div>
-        <div class="spec-web">
-            <img src="web-icon.svg" class="spec-icon">
-            <div class="spec-text">Разработка сайтов разной степени сложности</div>
-        </div>
-        <br>
-        <div class="spec-apple">
-            <img src="apple-icon.svg" class="spec-icon">
-            <div class="spec-text">Разработка приложений под платформы Apple</div>
-        </div>
-        <br>
-        <div class="spec-windows">
-            <img src="windows-icon.svg" class="spec-icon">
-            <div class="spec-text">Разработка приложений для OS Windows</div>
-        </div>
-        <br>
-        <div class="spec-android">
-            <img src="android-icon.svg" class="spec-icon">
-            <div class="spec-text">Разработка приложений для Android</div>
-        </div>
-    </div>
-    <div class="portfolio" id="portfolio">
-      <div class="portfolio-h">Портфолио</div>
-       <div class="portfolio-up-arrow-container"><div class="portfolio-up-arrow"></div></div>
-       <div class="portfolio-down-arrow-container"><div class="portfolio-down-arrow"></div></div>
-       <div class="portfolio-left-arrow-container"><div class="portfolio-left-arrow" id="portfolio-left-arrow"></div></div>
-       <div class="portfolio-right-arrow-container"><div class="portfolio-right-arrow" id="portfolio-right-arrow"></div></div>
-         <div id="portfolio-outer"> 
-            <div id="portfolio-inner">
-                <div class="portfolio-preview-container">
-                   <img src="prev_adventum.png" alt="" class="portfolio-preview">
-                   <div class="portfolio-text">Adventum Website Redesign 2014</div>
-                </div>
-                <div class="portfolio-preview-container">
-                   <img src="prev_adventum.png" alt="" class="portfolio-preview">
-                   <div class="portfolio-text">Second Portfolio Item</div>
-                </div>
+  <head>
+    <meta http-equiv="content-type" content="undefined; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title></title>
+    <!--link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700&subset=latin,cyrillic")-->
+    <link rel="stylesheet" href="css/open-sans.min.css">
+    <link rel="stylesheet" href="css/source-sans-pro.min.css">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </head>
+  <body ontouchstart="">
+    <main id="wrapper">
+      <section id="header">
+        <div class="logo"><img src="/img/logo.svg"></div>
+        <nav id="menu">
+          <ul>
+            <li><a href="#main">Начало</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#portfolio">Портфолио</a></li>
+            <li><a href="#price">Тарифы</a></li>
+            <li><a href="#team">Команда</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+        <button id="hideMenu" role="button" aria-label="Toggle Navigation" class="lines-button x"><span class="lines"></span></button>
+        <article id="slider">
+          <p class="pre">Привет, меня зовут</p>
+          <p class="h">Funtrum</p><img src="/img/hr.svg" class="hr">
+          <p class="text">Я занимаюсь разработкой сайтов, front-end и back-end. При front-end разработке использую навыки адаптивной и кроссбраузерной верстки с применением новейших технологий HTML5 и CSS3. Back-end занимаюсь на PHP и CMS на нем.</p>
+          <div class="contact-btn">Связаться со мной</div>
+          <div class="portfolio-btn">Портфолио</div>
+          <div class="slide"><img src="/img/header_bg.png"></div>
+          <div class="border">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 20" preserveAspectRatio="none" width="100%" style="height: 50px">
+              <polygon points="0,0  0,1000  500,20" style="fill:#ffffff;"></polygon>
+              <polygon points="0,100000  1000,0  500,20" style="fill:#ffffff;"></polygon>
+            </svg>
+          </div>
+          <div class="label-border">
+            <div class="label-container"><img src="/img/down-arrow.svg" class="anchor"></div>
+          </div>
+        </article>
+      </section>
+      <section id="about">
+        <article id="advantages">
+          <div id="col-1" class="cols">
+            <div class="icon-container"><img src="/img/dimensions.svg"></div>
+            <p class="h">Адаптивность</p>
+            <hr>
+            <p class="text">Адаптивная верстка дает преимущество в отображении сайтов на мобильных устройствах, делая их пригодными для использования на них</p>
+          </div>
+          <div id="col-2" class="cols">
+            <div class="icon-container"><img src="/img/configuration.svg"></div>
+            <p class="h">новые технологии</p>
+            <hr>
+            <p class="text">Безусловно, HTML и CSS остаются основой в веб-разработке, но использование препроцессоров придает коду высокую читабельность</p>
+          </div>
+          <div id="col-3" class="cols">
+            <div class="icon-container"><img src="/img/labels.svg"></div>
+            <p class="h">стоимость</p>
+            <hr>
+            <p class="text">Стоимость также является неотъемлемой частью при разработке сайтов. Мы никогда не завышаем цену и идем на уступки клиентам</p>
+          </div>
+          <div id="col-4" class="cols">
+            <div class="icon-container"><img src="/img/speech.svg"></div>
+            <p class="h">вежливость</p>
+            <hr>
+            <p class="text">При общении с клиентами соблюдаются правила вежливости, уважения, а также грамматики и пунктуации</p>
+          </div>
+          <div class="hr"></div>
+        </article>
+        <article id="me"><img>
+          <div class="container">
+            <p class="h">Лично обо мне</p>
+            <p class="main">Занимаюсь разработкой сайтов около 5 лет, разрабатываю как лендинги, так и полноценные Системы Управления Контентом (СMS). Имею опыт работы в команде, разбитой на разные области программирования. Люблю делать все от начала и до конца.</p>
+            <p class="additional">Постоянно изучаю новейшие технологии и тренды, стараюсь как можно быстрее применить их на практике, чтобы вкраплять их в реальные проекты. Разработку веду на Jade - препроцессор для HTML, добавляющий в него множество преимуществ и SASS - препроцессор для CSS, позволяющий также расширить возможности обычного (pure) CSS. На PHP пишу либо с нуля, либо дописываю функционал к готовой CMS.</p>
+            <div class="btn">Смотреть мои работы</div>
+          </div>
+        </article>
+        <article id="services">
+          <p class="h">Мои услуги</p>
+          <div class="container">
+            <p class="h">Верстка сайтов</p>
+            <p class="text">Адаптивная кроссбраузерная верстка сайтов на основе технологий HTML5 и CSS3 с применением препроцессоров Jade и SASS</p>
+          </div>
+          <div class="container">
+            <p class="h">Дополнение функционала CMS</p>
+            <p class="text">Порой в Системах Упаравления Контентом не предусмотрено использование какой-либо функции (например, биллинг с личным кабинетом и т.д.)</p>
+          </div>
+          <div class="container">
+            <p class="h">Написание CMS с нуля</p>
+            <p class="text">Если задача изощренная, то для ее решения может потребоваться собственная Система Управления Контентом (например, электронный журнал для уч. заведения)</p>
+          </div>
+        </article>
+      </section>
+      <section id="semantic">
+        <article id="portfolio">
+          <div id="p-head">
+            <div class="h">Мои работы</div>
+            <div class="d">Представлены только те проекты, которые были разработаны в период 2015-2016</div><img src="/img/portfolio_hr.svg" class="hr">
+            <div class="menu">
+              <div class="selector">
+                <select>
+                  <option value="all">Все</option>
+                  <option value="makeup">Верстка сайтов</option>
+                  <option value="plugin">Доработка CMS</option>
+                  <option value="cms">CMS с нуля</option>
+                </select>
+              </div>
             </div>
-        </div>
-    </div>
-    <div class="reviews" id="reviews">
-        <div class="reviews-up-arrow-container"><div class="reviews-up-arrow"></div></div>
-        <div class="reviews-down-arrow-container"><div class="reviews-down-arrow"></div></div>
-        <div class="reviews-left-arrow-container"><div class="reviews-left-arrow" id="reviews-left-arrow"></div></div>
-        <div class="reviews-right-arrow-container"><div class="reviews-right-arrow" id="reviews-right-arrow"></div></div>
-        <div class="reviews-h">Отзывы</div>
-        <div id="reviews-outer">
-            <div id="reviews-inner">
-                <div class="reviews-container">
-                    <div class="reviews-photo-container"><img src="AllaDrozdova.jpg" alt="" class="reviews-photo"></div>
-                    <div class="reviews-person">Алла Дроздова<br>Adventum Senior HR</div>
-                    <div class="reviews-text">Суперский отзыв о нас, какие мы крутые и классные!</div>
+          </div>
+          <div id="p-cols">
+            <div aria-label="p-cat-1" class="col-1">
+              <div class="bg"><img src="/img/p-col-bg.png"></div>
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
                 </div>
-                <div class="reviews-container">
-                    <div class="reviews-photo-container"><img src="Vovan.jpg" alt="" class="reviews-photo"></div>
-                    <div class="reviews-person">Вован<br>Великий оратор всея мира</div>
-                    <div class="reviews-text">Прекраснейшая студия!</div>
-                </div>
-             </div>
-         </div>
-    </div>
-    <div class="footer" id="footer">
-        <div class="footer-up-arrow-container"><div class="footer-up-arrow"></div></div>
-        <div class="footer-fullup-arrow-container"><div class="footer-fullup-arrow"></div></div>
-        <div class="footer-team">
-            <div class="footer-team-h">Команда</div>
-            <div id="team-outer">
-                <div id="team-inner">
-                    <div class="team-container">
-                        <img src="" alt="" class="footer-team-photo">
-                        <div class="footer-team-name">Никита</div>
-                        <div class="footer-team-rank">Веб-Программист</div>
-                    </div>
-                    <div class="team-container">
-                        <img src="" alt="" class="footer-team-photo">
-                        <div class="footer-team-name">Вован</div>
-                        <div class="footer-team-rank">PR-Агент</div>
-                    </div>
-                    <div class="team-container">
-                        <img src="" alt="" class="footer-team-photo">
-                        <div class="footer-team-name">Лаврентий</div>
-                        <div class="footer-team-rank">Прост)</div>
-                    </div>
-                </div>
+              </div>
             </div>
-        </div>
-        <div class="footer-order">
-            <div class="footer-order-h">Скидка 30% только сейчас!</div>
-            <br>
-            <script type="text/javascript">var submitted=false;</script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='http://%MY_PAGE%';}"></iframe>
-            <form action="https://docs.google.com/forms/d/1P9GFImNYmIODwKScdUOTKbTujlWDI93heCyB3JtoE1w/formResponse" method="POST" id="ss-form" target="_self" target="hidden_iframe" onsubmit="submitted=true;" class="footer-order-form">
-                <div class="footer-order-first">
-                    <input type="text" name="entry.1463753748" value="" class="footer-order-name" placeholder="Имя">
-                    <input type="email" name="entry.1178413080" value="" class="footer-order-email" placeholder="E-Mail">
+            <div aria-label="p-cat-1" class="col-2"><img src="/img/p-col-bg.png">
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
                 </div>
-                <div class="footer-order-third">
-                    <div class="footer-order-second">
-                        <div class="footer-order-type">
-                            <input type="checkbox" name="entry.814430390" value="Web" id="1" /><label for="1"><span class="ui"></span>Веб-Сайт</label>
-                        </div>
-                        <div class="footer-order-type">
-                            <input type="checkbox" name="entry.814430390" value="Apple" id="2" /><label for="2"><span class="ui"></span>Mac OS / iOS</label>
-                        </div>
-                        <div class="footer-order-type">
-                            <input type="checkbox" name="entry.814430390" value="Windows" id="3" /><label for="3"><span class="ui"></span>OS Windows</label>
-                        </div>
-                        <div class="footer-order-type">
-                            <input type="checkbox" name="entry.814430390" value="Android" id="4" /><label for="4"><span class="ui"></span>Android OS</label>
-                        </div>
-                    </div>
-                    <div class="footer-order-fourth">
-                        <textarea name="entry.1450567570" class="footer-order-text" placeholder="Текстовое задание"></textarea>
-                        <div onclick="javascript:document.forms[0].submit()" class="footer-order-btn">Заказать Немедленно</div>
-                     </div>
-                 </div>
+              </div>
+            </div>
+            <div aria-label="p-cat-1" class="col-3">
+              <div class="bg"><img src="/img/p-col-bg.png"></div>
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
+                </div>
+              </div>
+            </div>
+            <div aria-label="p-cat-2" class="col-4"><img src="/img/p-col-bg.png">
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
+                </div>
+              </div>
+            </div>
+            <div aria-label="p-cat-2" class="col-5">
+              <div class="bg"><img src="/img/p-col-bg.png"></div>
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
+                </div>
+              </div>
+            </div>
+            <div aria-label="p-cat-3" class="col-6"><img src="/img/p-col-bg.png">
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
+                </div>
+              </div>
+            </div>
+            <div aria-label="p-cat-3" class="col-7">
+              <div class="bg"><img src="/img/p-col-bg.png"></div>
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
+                </div>
+              </div>
+            </div>
+            <div aria-label="p-cat-3" class="col-8"><img src="/img/p-col-bg.png">
+              <div class="content">
+                <div class="text">
+                  <div class="h">Заголовок</div>
+                  <div class="d">Пояснение</div><a href="#" target="blank">
+                    <div class="order">Смотреть</div></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article id="review">
+          <p class="h">Отзывы</p>
+          <p class="d">Узнайте, что о нас думают наши клиенты и как они оценивают нашу работу</p><img src="/img/portfolio_hr.svg" class="hr">
+          <div class="container"><img src="/img/AllaDrozdova.jpg" alt="Photo" aria-label="review-photo" class="photo">
+            <p aria-label="review-name" class="name">Алла Дроздова</p>
+            <hr>
+            <p aria-label="review-text" class="text">Lorem Ipsum is simply dummy text of the printing and typesetting let. Lorem Ipsum has been the industry. Lorem Ipsum is simply dummy text of the printing and typesetting let. Lorem Ipsum has been the industry Printing and typelorem Ipsum has been the setting let.</p>
+            <div aria-label="review-person" class="person">Adventum HR</div>
+            <div class="slider">
+              <div aria-label="1" class="s active"></div>
+              <div aria-label="2" class="s"></div>
+              <div aria-label="3" class="s"></div>
+            </div>
+          </div>
+        </article>
+        <article id="social">
+          <div class="col-1">
+            <div class="content"><img src="/img/heart-icon.png"></div>
+            <p class="h">3891</p>
+            <p class="d">User Favorites</p>
+          </div>
+        </article>
+        <article id="price">
+          <p class="h">Тарифы</p>
+          <p class="d">Выберите такой тарифный план, который подходит именно вам.</p><img src="/img/portfolio_hr.svg" class="hr">
+          <div class="content">
+            <div class="col-1">
+              <div class="head">
+                <p class="h">Верстка</p>
+              </div>
+              <div class="body">
+                <div aria-label="price-1" class="price-border">
+                  <div class="price">5К ₽</div>
+                </div>
+                <div class="list">
+                  <p>Адаптивность</p>
+                  <p>Кроссбраузерность</p>
+                  <p>HTML5, CSS3</p>
+                  <p>Jade, SASS</p>
+                </div>
+                <div class="order">Выбрать</div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="head">
+                <p class="h">CMS-Модуль</p>
+              </div>
+              <div class="body">
+                <div aria-label="price-2" class="price-border">
+                  <div class="price">10К ₽</div>
+                </div>
+                <div class="list">
+                  <p>Внедрение в CMS</p>
+                  <p>Без отдельных Баз Данных</p>
+                  <p>Панель Администрирования</p>
+                  <p>PHP, MySQL</p>
+                </div>
+                <div class="order">Выбрать</div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="head">
+                <p class="h">Разработка CMS</p>
+              </div>
+              <div class="body">
+                <div aria-label="price-3" class="price-border">
+                  <div class="price">15К ₽</div>
+                </div>
+                <div class="list">
+                  <p>Уникальность</p>
+                  <p>Решение конкретных задач</p>
+                  <p>Качественный код (ООП)</p>
+                  <p>PHP, MySQL</p>
+                </div>
+                <div class="order">Выбрать</div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article id="team">
+          <p class="h">Команда</p><img src="/img/portfolio_hr.svg" class="hr">
+          <p class="d">Если Вы являетесь разработчиком и заинтересованы в сотрудничестве, то свяжитесь с нами через контакты</p>
+        </article>
+        <article id="feedback">
+          <p class="h">Свяжитесь с нами</p>
+          <p class="d">Вы можете связаться с нами по любому интересующему вас вопросу</p><img src="/img/portfolio_hr.svg" class="hr">
+          <div class="contacts">
+            <div class="col-1">
+              <p class="h">Skype</p>
+              <p class="d">nserpola</p>
+            </div>
+            <div class="col-2">
+              <p class="h">Телефон</p>
+              <p class="d">+7 906 061 03 90</p>
+            </div>
+            <div class="col-3">
+              <p class="h">EMAIL</p>
+              <p class="d">funtrum@icloud.com</p>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form action="#" method="post">
+              <input type="text" name="name" placeholder="Имя">
+              <input type="email" name="email" placeholder="E-Mail">
+              <input type="text" name="theme" placeholder="Тема">
+              <textarea type="text" name="message" placeholder="Сообщение"></textarea>
+              <input type="submit" value="Отправить">
             </form>
+          </div>
+        </article>
+      </section>
+      <footer>
+        <div class="social-buttons">
+          <div class="vk"></div>
+          <div class="skype"></div>
+          <div class="fb"></div>
         </div>
-        <!--img src="logo_test.svg" alt="" class="footer-logo"-->
-        <div class="footer-logo-text">Funtrum</div>
-        <div class="footer-year">2015</div>
-    </div>
-</body>
-<link rel="stylesheet" href="main.min.css">
-<script src="jquery-1.11.2.min.js"></script>
-<script src="main.min.js"></script>
+        <div class="copyright">Funtrum © All Rights Reserved</div>
+      </footer>
+    </main>
+  </body>
 </html>
